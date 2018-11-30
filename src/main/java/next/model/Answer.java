@@ -4,13 +4,9 @@ import java.util.Date;
 
 public class Answer {
     private long answerId;
-
     private String writer;
-
     private String contents;
-
     private Date createdDate;
-
     private long questionId;
 
     public Answer(String writer, String contents, long questionId) {
@@ -23,6 +19,7 @@ public class Answer {
         this.contents = contents;
         this.createdDate = createdDate;
         this.questionId = questionId;
+        
     }
 
     public long getAnswerId() {
