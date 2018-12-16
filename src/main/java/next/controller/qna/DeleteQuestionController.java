@@ -18,8 +18,7 @@ public class DeleteQuestionController extends AbstractController {
 	private QnaService qnaService = QnaService.getInstance();
 	
 	@Override
-	public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) 
-			throws Exception {
+	public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		if(!UserSessionUtils.isLogined(req.getSession())) {
 			return jspView("redirect:/users/loginForm");
 		}

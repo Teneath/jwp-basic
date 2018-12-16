@@ -19,6 +19,9 @@
               </c:if>		
               <c:if test="${CannotUpdate}">
             		<div class="alert alert-danger" role="alert">${다른 사람의 게시글은 수정하실 수 없습니다.}</div>
+              </c:if>
+              <c:if test="${CannotDelete}">
+            		<div class="alert alert-danger" role="alert">${다른 사람의 게시글은 삭제하실 수 없습니다.}</div>
               </c:if>		
 	        
 	          <header class="qna-header">

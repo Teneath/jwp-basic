@@ -13,8 +13,7 @@ public class UpdateFormQuestionController extends AbstractController {
 	QuestionDao questionDao = QuestionDao.getInstance();
 	
 	@Override
-	public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) 
-			throws Exception {
+	public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		if(!UserSessionUtils.isLogined(req.getSession())) {
 			return jspView("redirect:/users/loginForm");
 		}
@@ -22,7 +21,7 @@ public class UpdateFormQuestionController extends AbstractController {
 		long questionId = Long.parseLong(req.getParameter("questionId"));
 		Question question = questionDao.findById(questionId);
 		
-		if (!question.isSameUser(UserSessionUtils.getUserFromSession(req.getSession()))) {return jspView("/user/show.jsp").addObject("CannotUpdate", true);
+		if (!question.isSameUser(UserSessionUtils.getUserFromSession(req.getSession()))) {return jspView("/qna/show.jsp").addObject("CannotUpdate", true);
         }
 		
 		return jspView("/qna/update.jsp").addObject("question", question);

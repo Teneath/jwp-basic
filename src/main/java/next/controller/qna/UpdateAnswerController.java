@@ -44,7 +44,7 @@ public class UpdateAnswerController extends AbstractController {
 		String userId = null;
 		User user = UserSessionUtils.getUserFromSession(req.getSession());	
 		if (!answer.isSameUser(UserSessionUtils.getUserFromSession(req.getSession()))) {
-        	return jspView("/user/show.jsp").addObject("CannotUpdate", true);
+        	return jspView("/qna/show.jsp").addObject("CannotUpdate", true);
         }
 		if(user != null)
 		userId = user.getUserId();

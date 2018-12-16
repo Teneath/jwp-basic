@@ -29,7 +29,7 @@ public class UpdateFormAnswerController extends AbstractController {
         long answerId = Long.parseLong(req.getParameter("answerId"));
         Answer answer = answerDao.findById(answerId);
         User user = UserSessionUtils.getUserFromSession(req.getSession());
-        if (!answer.getWriter().equals(user.getUserId())){return jspView("/user/show.jsp").addObject("CannotUpdate", true);}
+        if (!answer.getWriter().equals(user.getUserId())){return jspView("/qna/show.jsp").addObject("CannotUpdate", true);}
         log.debug("UpdateFrom Answer : {} ", answer);
         long questionId = answer.getQuestionId();
         Question question = qusetionDao.findById(questionId);
