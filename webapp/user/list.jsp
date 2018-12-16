@@ -11,13 +11,21 @@
 
 <div class="container" id="main">
     <div class="col-md-10 col-md-offset-1">
+
         <div class="panel panel-default">
+                 <c:if test="${loginFailed}">
+            		<div class="alert alert-danger" role="alert">다른 사람의 정보를 바꿀수 없습니다.</div>
+            	 </c:if>
+            	 <c:if test ="${empty sessionScope.user}">
+            		<div class="alert alert-danger" role="alert">로그인을 먼저 해 주십시오.</div>
+            	 </c:if>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>#</th> <th>사용자 아이디</th> <th>이름</th> <th>이메일</th><th></th>
                 </tr>
-                </thead>
+                </thead>                  
+
                 <tbody>
                 <c:forEach items="${users}" var="user" varStatus="status">
                     <tr>
@@ -32,8 +40,9 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</div>
+   	  </div>
+	</div>
+
 
 <%@ include file="/include/footer.jspf" %>
 </body>

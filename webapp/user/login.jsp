@@ -15,6 +15,10 @@
             <c:if test="${loginFailed}">
             <div class="alert alert-danger" role="alert">아이디 또는 비밀번호가 틀립니다. 다시 로그인 해주세요.</div>
             </c:if>
+            
+            <c:if test="${wrongPassword}">
+            <div class="alert alert-danger" role="alert">비밀번호가 틀립니다. 다시 로그인 해주세요.</div>
+            </c:if>
             <form name="question" method="post" action="/users/login">
                 <div class="form-group">
                     <label for="userId">사용자 아이디</label>

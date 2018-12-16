@@ -3,3 +3,7 @@
 <script src="/js/jquery-2.2.0.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/scripts.js"></script>
+<script type="text/template" id="countTemplate">
+   <p class="qna-comment-count"> <strong> {0} </strong>개의 의견 </p>
+</script>
+

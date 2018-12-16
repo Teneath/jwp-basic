@@ -22,7 +22,7 @@
                         <div class="media-body">
                             <h4 class="media-heading">${user.name}</h4>
                             <p>
-                                <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-envelope"></span>&nbsp;${user.email}</a>
+                                <a href="https://mail.google.com" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-envelope"></span>&nbsp;${user.email}</a>
                             </p>
                         </div>
                     </div>

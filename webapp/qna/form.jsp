@@ -15,8 +15,10 @@
       <div class="panel panel-default content-main">
           <form name="question" method="post" action="/qna/create">
               <div class="form-group">
-                  <label for="writer">글쓴이</label>
-                  <input class="form-control" id="writer" name="writer" placeholder="글쓴이"/>
+                 <label for="writer">글쓴이</label>
+	             <input type="hidden" class="form-control" id="writer" name="writer" 
+	                  value="${user.name}">
+	                  <input disabled class="form-control" value="${user.name}">
               </div>
               <div class="form-group">
                   <label for="title">제목</label>

@@ -3,6 +3,9 @@ package next.controller.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import next.controller.UserSessionUtils;
 import next.dao.UserDao;
 import next.model.User;
@@ -10,14 +13,19 @@ import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 
 public class UpdateFormUserController extends AbstractController {
-    private UserDao userDao = new UserDao();
+	private static final Logger log = LoggerFactory.getLogger(CreateUserController.class);
+	UserDao userDao = UserDao.getInstance();
 
     @Override
-    public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        User user = userDao.findByUserId(request.getParameter("userId"));
+    public ModelAndView execute(HttpServletRequest req, HttpServletResponse response) throws Exception {
+        if (!UserSessionUtils.isLogined(req.getSession())) {
+            return jspView("redirect:/users/loginForm");
+        }
+        
+        User user = userDao.findByUserId(req.getParameter("userId"));
 
-        if (!UserSessionUtils.isSameUser(request.getSession(), user)) {
-            throw new IllegalStateException("다른 사용자의 정보를 수정할 수 없습니다.");
+        if (!UserSessionUtils.isSameUser(req.getSession(), user)) {
+            return jspView("/user/list.jsp").addObject("loginFailed", true);
         }
         ModelAndView mav = jspView("/user/updateForm.jsp");
         mav.addObject("user", user);

@@ -76,4 +76,8 @@ public class Answer {
         return "Answer [answerId=" + answerId + ", writer=" + writer + ", contents=" + contents + ", createdDate="
                 + createdDate + ", questionId=" + questionId + "]";
     }
+
+	public boolean isSameUser(User user) {
+		return user.isSameUser(this.writer);
+	}
 }
