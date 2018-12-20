@@ -25,7 +25,9 @@ public class UpdateFormUserController extends AbstractController {
         User user = userDao.findByUserId(req.getParameter("userId"));
 
         if (!UserSessionUtils.isSameUser(req.getSession(), user)) {
-            return jspView("/user/list.jsp").addObject("loginFailed", true);
+            ModelAndView mav = jspView("/user/list.jsp");
+            mav.addObject("users", userDao.findAll()).addObject("CannotChange", true);
+        	return mav;
         }
         ModelAndView mav = jspView("/user/updateForm.jsp");
         mav.addObject("user", user);

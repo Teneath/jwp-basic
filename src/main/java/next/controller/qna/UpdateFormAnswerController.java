@@ -17,7 +17,7 @@ import next.model.User;
 
 public class UpdateFormAnswerController extends AbstractController {	
 	AnswerDao answerDao = AnswerDao.getInstance();
-	QuestionDao qusetionDao = QuestionDao.getInstance();
+	QuestionDao questionDao = QuestionDao.getInstance();
 	private static final Logger log = LoggerFactory.getLogger(AddAnswerController.class);
 	
 	@Override
@@ -29,11 +29,15 @@ public class UpdateFormAnswerController extends AbstractController {
         long answerId = Long.parseLong(req.getParameter("answerId"));
         Answer answer = answerDao.findById(answerId);
         User user = UserSessionUtils.getUserFromSession(req.getSession());
-        if (!answer.getWriter().equals(user.getUserId())){return jspView("/qna/show.jsp").addObject("CannotUpdate", true);}
-        log.debug("UpdateFrom Answer : {} ", answer);
         long questionId = answer.getQuestionId();
-        Question question = qusetionDao.findById(questionId);
+        Question question = questionDao.findById(questionId);
         
+        
+        if (!answer.getWriter().equals(user.getUserId())){
+        	return jspView("show.jsp").addObject("question", questionDao.findById(questionId)).addObject("answers", answerDao.findAllByQuestionId(questionId))
+					.addObject("CannotUpdate", true).addObject("userId", user.getUserId());}
+        log.debug("UpdateFrom Answer : {} ", answer);
+
         return jspView("/qna/updateAnswer.jsp").addObject("question", question).addObject("answer", answer).addObject("userId", user.getUserId());
 	}
 }

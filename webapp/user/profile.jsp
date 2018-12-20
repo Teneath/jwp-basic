@@ -16,7 +16,7 @@
             <div class="panel-body">
                 <div class="well well-sm">
                     <div class="media">
-                        <a class="thumbnail pull-left" href="#">
+                        <a class="thumbnail pull-left">
                             <img class="media-object" src="../images/80-text.png">
                         </a>
                         <div class="media-body">

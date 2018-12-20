@@ -31,7 +31,7 @@ public class DeleteQuestionController extends AbstractController {
 			return jspView("redirect:/");
 		}catch(CannotDeleteException e) {
 			return jspView("show.jsp").addObject("question", questionDao.findById(questionId)).addObject("answers", answerDao.findAllByQuestionId(questionId))
-					.addObject("errorMessage", e.getMessage()).addObject("userId", user.getUserId());
+					.addObject("CannotDelete", true).addObject("userId", user.getUserId());
 		}
 	}
 }

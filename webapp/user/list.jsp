@@ -13,11 +13,11 @@
     <div class="col-md-10 col-md-offset-1">
 
         <div class="panel panel-default">
-                 <c:if test="${loginFailed}">
-            		<div class="alert alert-danger" role="alert">다른 사람의 정보를 바꿀수 없습니다.</div>
-            	 </c:if>
             	 <c:if test ="${empty sessionScope.user}">
             		<div class="alert alert-danger" role="alert">로그인을 먼저 해 주십시오.</div>
+            	 </c:if>
+            	 <c:if test="${CannotChange}">
+            		<div class="alert alert-danger" role="alert">다른 사람의 정보를 바꿀수 없습니다.</div>
             	 </c:if>
             <table class="table table-hover">
                 <thead>

@@ -18,10 +18,10 @@
             		<div class="alert alert-danger" role="alert">${errorMessage}</div>
               </c:if>		
               <c:if test="${CannotUpdate}">
-            		<div class="alert alert-danger" role="alert">${다른 사람의 게시글은 수정하실 수 없습니다.}</div>
+            		<div class="alert alert-danger" role="alert">다른 사람의 게시글은 수정하실 수 없습니다.</div>
               </c:if>
               <c:if test="${CannotDelete}">
-            		<div class="alert alert-danger" role="alert">${다른 사람의 게시글은 삭제하실 수 없습니다.}</div>
+            		<div class="alert alert-danger" role="alert">다른 사람의 게시글은 삭제하실 수 없습니다.</div>
               </c:if>		
 	        
 	          <header class="qna-header">
@@ -34,7 +34,7 @@
 	                          <img src="https://graph.facebook.com/v2.3/100000059371774/picture" class="article-author-thumb" alt="">
 	                      </div>
 	                      <div class="article-header-text">
-	                            <a href="#" class="article-author-name">${question.writer}</a>
+	                            <a href="/users/profile?userId=${question.writer}" class="article-author-name">${question.writer}</a>
 	                          <a href="#" class="article-header-time">
 	                              <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${question.createdDate}"/>
 	                              <i class="icon-link"></i>
