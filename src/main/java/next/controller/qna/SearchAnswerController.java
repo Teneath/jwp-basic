@@ -5,12 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
+import next.dao.QuestionDao;
 
 public class SearchAnswerController extends AbstractController {
+	QuestionDao questionDao = QuestionDao.getInstance();
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest req, HttpServletResponse response) throws Exception {
 		String link = req.getParameter("srchTerm");
-    	return jspView("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query="+link);
+    	return jspView("home.jsp").addObject("questions", questionDao.findAll());
 	}
 }

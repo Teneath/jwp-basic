@@ -72,9 +72,10 @@ public class QnaService {
     	if(answer == null) {
     		throw new CannotDeleteException("존재하지 않는 질문입니다.");
     	}
-    	if(!answer.getWriter().equals(user.getUserId())) {
+    	if(!answer.getWriter().equals(user.getUserId())|| answer.getWriter().equals(null)) {
     		throw new CannotDeleteException("다른 사용자가 쓴 댓글을 삭제할 수 없습니다.");
     	}
+    	
     	answerDao.delete(answerId);
 
         questionDao.updateCountOfAnswer(answer.getQuestionId(), -1);
