@@ -15,7 +15,7 @@
               <div class="input-group" style="max-width:470px;">
                 <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
                 <div class="input-group-btn">
-                  <button class="btn btn-default btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  <button class="btn btn-default btn-primary" type="submit"><i class="glyphicon glyphicon-search"><a href = "https://search.naver.com/search.naver?sm=top_hty&fbm=0&ie=utf8&query=${srch-term}" style="color:#FFFFFF;" target="_blank"> 결과보기</a></i></button>
                 </div>
               </div>
           </form>
